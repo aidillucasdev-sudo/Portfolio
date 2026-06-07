@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silva & Associados — Advocacia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1b2a;--navy2:#162032;--navy3:#1e2d40;
+  --gold:#b8973a;--gold2:#d4ae52;--cream:#f8f5ef;--muted:#8899aa;
+  --white:#fff;
+  --cormorant:'Cormorant Garamond',serif;--jost:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--jost);background:var(--cream);color:var(--navy);overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 72px;background:rgba(13,27,42,.97);
+  backdrop-filter:blur(20px);
+}
+.logo-wrap{display:flex;flex-direction:column}
+.logo-main{font-family:var(--cormorant);font-size:20px;color:var(--white);font-weight:600;letter-spacing:.05em}
+.logo-sub{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  border:1px solid rgba(184,151,58,.4);color:var(--gold);
+  padding:10px 28px;font-size:11px;letter-spacing:.15em;
+  text-transform:uppercase;text-decoration:none;font-weight:500;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+.hero{
+  background:var(--navy);min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding-top:80px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-left{
+  padding:80px 72px;display:flex;flex-direction:column;
+  justify-content:center;position:relative;z-index:1;
+}
+.hero-ornament{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:32px;
+}
+.ornament-line{width:40px;height:1px;background:var(--gold)}
+.ornament-text{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.hero h1{
+  font-family:var(--cormorant);
+  font-size:clamp(42px,5vw,72px);
+  color:var(--white);font-weight:600;
+  line-height:1.1;margin-bottom:28px;
+}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-desc{
+  font-size:15px;color:rgba(255,255,255,.5);
+  line-height:1.9;max-width:420px;margin-bottom:48px;font-weight:300;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-gold{
+  padding:14px 32px;background:var(--gold);color:var(--navy);
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;text-decoration:none;transition:all .2s;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-ghost{
+  padding:14px 32px;border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.6);font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:400;text-decoration:none;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:0 48px 0 0;position:relative;z-index:1;
+}
+.hero-card-stack{
+  display:flex;flex-direction:column;gap:1px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  width:100%;max-width:380px;margin:auto 0;
+}
+.hero-card{
+  background:rgba(255,255,255,.03);padding:28px 32px;
+  display:flex;align-items:center;gap:20px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:background .2s;
+}
+.hero-card:last-child{border-bottom:none}
+.hero-card:hover{background:rgba(255,255,255,.06)}
+.hcard-icon{
+  width:44px;height:44px;border:1px solid rgba(184,151,58,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.hcard-title{font-family:var(--cormorant);font-size:16px;color:var(--white);font-weight:600;margin-bottom:4px}
+.hcard-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5}
+
+.areas{padding:120px 72px;max-width:1300px;margin:0 auto}
+.sec-ornament{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.sec-line{width:32px;height:1px;background:var(--gold)}
+.sec-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.sec-h{font-family:var(--cormorant);font-size:clamp(36px,4vw,56px);font-weight:600;line-height:1.1;margin-bottom:60px;color:var(--navy)}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.area-card{
+  border:1px solid #ddd;padding:44px 36px;background:var(--white);
+  position:relative;transition:all .3s;overflow:hidden;
+}
+.area-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--gold);transform:scaleY(0);transition:transform .3s;
+}
+.area-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(13,27,42,.1);border-color:transparent}
+.area-card:hover::before{transform:scaleY(1)}
+.area-num{
+  font-family:var(--cormorant);font-size:48px;color:rgba(13,27,42,.06);
+  font-weight:700;line-height:1;margin-bottom:16px;
+}
+.area-icon{font-size:28px;margin-bottom:16px}
+.area-name{font-family:var(--cormorant);font-size:22px;font-weight:600;margin-bottom:12px;color:var(--navy)}
+.area-desc{font-size:13px;color:#888;line-height:1.8;font-weight:300}
+
+.diferenciais{background:var(--navy);padding:120px 72px}
+.dif-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.dif-left .sec-h{color:var(--white)}
+.dif-left p{font-size:15px;color:rgba(255,255,255,.5);line-height:1.9;font-weight:300;margin-bottom:40px}
+.dif-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+.dif-stat{background:var(--navy);padding:28px;text-align:center}
+.dif-num{font-family:var(--cormorant);font-size:44px;color:var(--gold);font-weight:600}
+.dif-label{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;letter-spacing:.05em}
+.dif-right{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.dif-item{background:rgba(255,255,255,.02);padding:32px;display:flex;gap:20px;transition:background .2s}
+.dif-item:hover{background:rgba(255,255,255,.05)}
+.dif-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.dif-item-title{font-family:var(--cormorant);font-size:18px;color:var(--white);margin-bottom:6px;font-weight:600}
+.dif-item-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;font-weight:300}
+
+.contato{padding:120px 72px;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contato-info .sec-h{margin-bottom:24px}
+.contato-info p{font-size:15px;color:#888;line-height:1.9;margin-bottom:40px;font-weight:300}
+.infos{display:flex;flex-direction:column;gap:1px;border:1px solid #ddd;background:#ddd}
+.info-item{
+  background:var(--white);padding:24px 28px;
+  display:flex;align-items:center;gap:16px;
+  font-size:14px;color:var(--navy);
+}
+.info-icon{font-size:18px;width:24px;text-align:center;flex-shrink:0}
+.contato-form-wrap{background:var(--navy);padding:48px}
+.contato-form-wrap h3{font-family:var(--cormorant);font-size:28px;color:var(--white);margin-bottom:32px;font-weight:600}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.form-group label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.form-group input,.form-group select,.form-group textarea{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--white);padding:13px 16px;font-family:var(--jost);
+  font-size:14px;font-weight:300;outline:none;transition:border .2s;
+}
+.form-group input::placeholder{color:rgba(255,255,255,.2)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(184,151,58,.5)}
+.form-group select option{background:var(--navy)}
+.btn-gold-full{
+  width:100%;padding:16px;background:var(--gold);color:var(--navy);
+  font-family:var(--jost);font-weight:600;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;
+  transition:background .2s;
+}
+.btn-gold-full:hover{background:var(--gold2)}
+
+footer{
+  background:var(--navy);border-top:1px solid rgba(255,255,255,.06);
+  padding:36px 72px;display:flex;justify-content:space-between;align-items:center;
+}
+footer p{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.05em}
+.footer-oab{font-size:12px;color:var(--gold)}
+
+@media(max-width:768px){
+  nav{padding:16px 24px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-left{padding:60px 24px}.hero-right{display:none}
+  .areas{padding:60px 24px}.areas-grid{grid-template-columns:1fr}
+  .diferenciais{padding:60px 24px}.dif-inner{grid-template-columns:1fr;gap:40px}
+  .contato{grid-template-columns:1fr;padding:60px 24px;gap:40px}
+  footer{flex-direction:column;gap:8px;padding:24px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-main">Silva & Associados</div>
+    <div class="logo-sub">Advocacia & Consultoria Jurídica</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#diferenciais">O escritório</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Consulta gratuita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-text">São Luís, MA · OAB/MA</div>
+    </div>
+    <h1>Defendendo seus <em>direitos</em> com excelência</h1>
+    <p class="hero-desc">Um escritório comprometido com resultados. Atuação personalizada, ética e eficiência jurídica para pessoas físicas e empresas.</p>
+    <div class="hero-btns">
+      <a href="#contato" class="btn-gold">Consulta gratuita →</a>
+      <a href="#areas" class="btn-ghost">Nossas áreas</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-stack">
+      <div class="hero-card"><div class="hcard-icon">⚖️</div><div><div class="hcard-title">Direito Civil</div><div class="hcard-desc">Contratos, família e sucessões</div></div></div>
+      <div class="hero-card"><div class="hcard-icon">🏢</div><div><div class="hcard-title">Direito Empresarial</div><div class="hcard-desc">Abertura, contratos e conflitos</div></div></div>
+      <div class="hero-card"><div class="hcard-icon">👷</div><div><div class="hcard-title">Direito Trabalhista</div><div class="hcard-desc">Defesa de trabalhadores e empresas</div></div></div>
+      <div class="hero-card"><div class="hcard-icon">🏠</div><div><div class="hcard-title">Direito Imobiliário</div><div class="hcard-desc">Compra, venda e locação</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="sec-ornament"><div class="sec-line"></div><div class="sec-tag">Atuação</div></div>
+  <h2 class="sec-h">Nossas áreas<br>de atuação</h2>
+  <div class="areas-grid">
+    <div class="area-card"><div class="area-num">01</div><div class="area-icon">⚖️</div><div class="area-name">Direito Civil</div><div class="area-desc">Contratos, responsabilidade civil, direito de família, inventários e sucessões hereditárias.</div></div>
+    <div class="area-card"><div class="area-num">02</div><div class="area-icon">👷</div><div class="area-name">Direito Trabalhista</div><div class="area-desc">Rescisões, horas extras, assédio moral, defesa de trabalhadores e empresas perante a Justiça do Trabalho.</div></div>
+    <div class="area-card"><div class="area-num">03</div><div class="area-icon">🏢</div><div class="area-name">Direito Empresarial</div><div class="area-desc">Abertura e regularização de empresas, contratos comerciais, fusões, aquisições e recuperação judicial.</div></div>
+    <div class="area-card"><div class="area-num">04</div><div class="area-icon">🏠</div><div class="area-name">Direito Imobiliário</div><div class="area-desc">Compra e venda de imóveis, usucapião, regularização fundiária e contratos de locação.</div></div>
+    <div class="area-card"><div class="area-num">05</div><div class="area-icon">👨‍👩‍👧</div><div class="area-name">Direito de Família</div><div class="area-desc">Divórcio, guarda de filhos, pensão alimentícia e reconhecimento de paternidade.</div></div>
+    <div class="area-card"><div class="area-num">06</div><div class="area-icon">🛡️</div><div class="area-name">Direito do Consumidor</div><div class="area-desc">Defesa em casos de cobrança indevida, produtos defeituosos e relações de consumo.</div></div>
+  </div>
+</section>
+
+<section class="diferenciais" id="diferenciais">
+  <div class="dif-inner">
+    <div class="dif-left">
+      <div class="sec-ornament"><div class="sec-line"></div><div class="sec-tag" style="color:var(--gold)">O escritório</div></div>
+      <h2 class="sec-h">Por que nos escolher</h2>
+      <p>Mais de 20 anos defendendo os direitos de clientes em São Luís e no Maranhão. Nossa experiência é nossa maior garantia.</p>
+      <div class="dif-stats">
+        <div class="dif-stat"><div class="dif-num">20+</div><div class="dif-label">Anos de experiência</div></div>
+        <div class="dif-stat"><div class="dif-num">500+</div><div class="dif-label">Casos encerrados</div></div>
+        <div class="dif-stat"><div class="dif-num">95%</div><div class="dif-label">Taxa de êxito</div></div>
+        <div class="dif-stat"><div class="dif-num">6</div><div class="dif-label">Áreas de atuação</div></div>
+      </div>
+    </div>
+    <div class="dif-right">
+      <div class="dif-item"><div class="dif-icon">🎯</div><div><div class="dif-item-title">Atendimento personalizado</div><div class="dif-item-desc">Cada caso é único. Analisamos sua situação individualmente com dedicação total.</div></div></div>
+      <div class="dif-item"><div class="dif-icon">⏱️</div><div><div class="dif-item-title">Agilidade nos processos</div><div class="dif-item-desc">Acompanhamos seu processo de perto e mantemos você informado em cada etapa.</div></div></div>
+      <div class="dif-item"><div class="dif-icon">🔒</div><div><div class="dif-item-title">Sigilo e ética</div><div class="dif-item-desc">Total confidencialidade. Sua privacidade e seus dados são tratados com máximo cuidado.</div></div></div>
+      <div class="dif-item"><div class="dif-icon">💬</div><div><div class="dif-item-title">Consulta gratuita</div><div class="dif-item-desc">Primeira consulta sem custo. Conheça seus direitos antes de tomar qualquer decisão.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="contato-info">
+    <div class="sec-ornament"><div class="sec-line"></div><div class="sec-tag">Contato</div></div>
+    <h2 class="sec-h">Fale com um advogado agora</h2>
+    <p>A primeira consulta é gratuita e sem compromisso. Entre em contato pelos canais abaixo ou preencha o formulário.</p>
+    <div class="infos">
+      <div class="info-item"><div class="info-icon">📞</div>(98) 3222-5555</div>
+      <div class="info-item"><div class="info-icon">📱</div>(98) 99777-4444 (WhatsApp)</div>
+      <div class="info-item"><div class="info-icon">✉️</div>contato@silvaadvocacia.com.br</div>
+      <div class="info-item"><div class="info-icon">📍</div>Av. Jerônimo de Albuquerque, 800 — São Luís</div>
+      <div class="info-item"><div class="info-icon">🕐</div>Seg–Sex: 8h às 18h</div>
+    </div>
+  </div>
+  <div class="contato-form-wrap">
+    <h3>Solicite uma consulta gratuita</h3>
+    <div class="form-group"><label>Nome completo</label><input type="text" placeholder="Seu nome"></div>
+    <div class="form-group"><label>Telefone / WhatsApp</label><input type="text" placeholder="(98) 99999-0000"></div>
+    <div class="form-group"><label>Área jurídica</label>
+      <select><option>Selecione a área...</option><option>Direito Civil</option><option>Direito Trabalhista</option><option>Direito Empresarial</option><option>Direito Imobiliário</option><option>Direito de Família</option><option>Direito do Consumidor</option></select>
+    </div>
+    <div class="form-group"><label>Descreva brevemente sua situação</label><textarea rows="4" placeholder="Conte um pouco sobre o seu caso..." style="resize:none;color:#fff"></textarea></div>
+    <button class="btn-gold-full">Solicitar consulta gratuita</button>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Silva & Associados — Advocacia e Consultoria Jurídica</p>
+  <div><p class="footer-oab">OAB/MA · São Luís, Maranhão</p><p style="margin-top:4px">Site desenvolvido por Aidil Lucas — Dev Web</p></div>
+</footer>
+
+</body>
+</html>
